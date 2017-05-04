@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report
+	ID="Default"
+	>
+	<Body>
+		<Dashboard2
+			DashboardColumns="3"
+			DashboardTabs="True"
+			ID="Dashboard1"
+			SaveFile="@Function.AppPhysicalPath~\SavedDashboards\newReport_User_@Function.UserName~.xml"
+			>
+			<Panel
+				Caption="Panel 1"
+				ID="pnl1"
+				>
+				<PanelContent>
+					<Label
+						Caption="[Place content here]"
+					/>
+					<ChartCanvas
+						ChartCaption="Sum of Column2 by Column1 "
+						ChartHeight="300"
+						ChartOrientation="SwapAxes"
+						ChartWidth="500"
+						ID="BarChartCanvas1"
+						>
+						<Series
+							ChartXDataColumn="Column1"
+							ChartYDataColumn="rdGrAggr-Column2-sum"
+							Type="Bar"
+							>
+							<Quicktip>
+								<QuicktipRow
+									Caption="Column1: "
+									Value="@Chart.Column1~"
+								/>
+								<QuicktipRow
+									Caption="Column2: "
+									Format="mps9"
+									Value="@Chart.rdGrAggr-Column2-sum~"
+								/>
+							</Quicktip>
+						</Series>
+						<ChartXAxis
+							AxisCaption="Column1"
+						/>
+						<ChartYAxis
+							AxisCaption="Column2"
+						/>
+						<Resizer
+							MinHeight="150"
+							MinWidth="250"
+						/>
+						<DataLayer
+							ID="StaticDataLayer1"
+							Type="Static"
+							>
+							<GroupFilter
+								DataType="Text"
+								GroupColumn="Column1"
+								KeepGroupedRows="False"
+								>
+								<GroupAggregateColumn
+									AggregateColumn="Column2"
+									AggregateFunction="SUM"
+									DataType="Number"
+									ID="rdGrAggr-Column2-sum"
+								/>
+							</GroupFilter>
+							<SortFilter
+								DataType="Number"
+								SortColumn="rdGrAggr-Column2-sum"
+								SortSequence="Ascending"
+							/>
+							<RelevanceFilter
+								DataColumn="rdGrAggr-Column2-sum"
+								IrrelevanceLabel="Other"
+								LabelColumn="Column1"
+								RelevanceType="NumberOfRows"
+								RelevanceValue="0"
+							/>
+							<StaticDataRow
+								Column1="aa"
+								Column2="30"
+								Column3=""
+							/>
+						</DataLayer>
+					</ChartCanvas>
+				</PanelContent>
+			</Panel>
+			<Panel
+				Caption="Panel 2"
+				ID="pnl2"
+				>
+				<PanelContent>
+					<Label
+						Caption="[Place content here]"
+					/>
+				</PanelContent>
+			</Panel>
+			<Panel
+				Caption="Panel 3"
+				ID="pnl3"
+				>
+				<PanelContent>
+					<Label
+						Caption="[Place content here]"
+					/>
+				</PanelContent>
+			</Panel>
+		</Dashboard2>
+	</Body>
+	<ideTestParams/>
+</Report>

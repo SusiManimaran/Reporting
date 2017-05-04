@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Setting
+	ID="_settings"
+	>
+	<GlobalCSS
+		ID="themeSignal"
+		Theme="Signal"
+	/>
+	<Application
+		Caption="Test Dashboards"
+	/>
+	<Path
+		AppPath="http://localhost/test_susi"
+	/>
+	<General
+		RepoFriendly="True"
+		ScriptingLanguage="JavaScript"
+	/>
+	<Connections>
+		<Remark>
+			<Connection
+				Type="ODBC"
+			/>
+		</Remark>
+		<Connection
+			ID="mysqllocal"
+			MySqlDatabase="ibm_pod_dashboard"
+			MySqlPassword="root123"
+			MySqlServer="localhost"
+			MySqlUser="root"
+			Type="MySql"
+		/>
+	</Connections>
+	<TeamDevelopment/>
+	<Constants
+		schema_name="ibm_pod"
+	/>
+</Setting>
